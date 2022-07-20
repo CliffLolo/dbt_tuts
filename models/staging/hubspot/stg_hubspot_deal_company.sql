@@ -2,7 +2,6 @@ with base as(
     select *
     from {{ source ('hubspot','deal_company') }}
 ),
-
 fields as (
     select
         company_id,
