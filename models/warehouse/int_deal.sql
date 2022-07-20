@@ -2,12 +2,10 @@ with deal as(
     select *
     from {{ ref('stg_hubspot_deal') }}
 ),
-
 deal_company as (
     select *
     from {{ ref('stg_hubspot_deal_company') }}
 ),
-
 joined as (
     select
         deal.*,
@@ -15,7 +13,6 @@ joined as (
     from deal
     left join deal_company using (deal_id)
 ),
-
 final as (
     select *
     from joined
