@@ -12,11 +12,10 @@ final as (
         deal_stage._fivetran_end as date_stage_exited,
         deal_stage._fivetran_active as is_stage_actave,
         case when deal_stage_name in ('closedown', 'closedlost') then date_stage_entered
-            when TO_BOOLEAN(IS_STAGE_ACTIVE) then current_timestamp
             else date_stage_exited end
         as date_stage_latest,
 
-        ((dbt_utils.datediff('date_stage_entered', 'date_stage_latest','seconds'))) as duration_in_stage_seconds
+        {{dbt_utils.datediff('date_stage_entered', 'date_stage_latest','seconds') }} as duration_in_stage_seconds
 
     from deal_stage
 )
