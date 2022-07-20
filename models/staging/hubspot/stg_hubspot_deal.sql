@@ -3,7 +3,6 @@ with base as (
     from {{ source( 'hubspot', 'deal') }}
     where not coalesce(is_deleted, false)
 ),
-
 fields as(
     select
         deal_id,
