@@ -2,7 +2,6 @@ with base as(
     select *
     from {{ source('hubspot', 'deal_stage') }}  
 ),
-
 fields as(
     select
         date_entered,
