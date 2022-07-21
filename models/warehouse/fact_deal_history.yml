@@ -1,0 +1,11 @@
+version: 2
+
+models:
+  - name: fact_deal_history
+    description: This is the fact table
+    columns:
+      - name: DEAL_ID
+        description: Primary key
+        tests:
+          - unique
+          - not_null
